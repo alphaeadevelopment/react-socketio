@@ -22,9 +22,7 @@ const config = {
   output: {
     path: outputPath,
     filename: '[name].js',
-    libraryTarget: 'umd',
-    library: pkg.name,
-    umdNamedDefine: true,
+    libraryTarget: 'commonjs2',
   },
   module: {
     rules: [
@@ -46,13 +44,12 @@ const config = {
   resolve: {
     extensions: ['.js', '.jsx'],
   },
-  // externals: /^(lodash(\/.*)|redux|react-redux|react|prop-types|socket.io-client)$/,
+  externals: /^(lodash(\/.*)|redux|react-redux|react|prop-types|socket.io-client)$/,
   plugins: [
     new webpack.optimize.CommonsChunkPlugin({
       name: ['vendor', 'manifest'],
     }),
-  ],
-  target: 'web',
+  ]
 };
 
 // PROD ONLY
