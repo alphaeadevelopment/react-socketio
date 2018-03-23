@@ -22,7 +22,9 @@
     "prop-types": "^15.6.1",
     "react": "^16.2.0",
     "react-redux": "^5.0.7",
-    "redux": "^3.7.2"
+    "redux": "^3.7.2",
+    "socket.io": "^2.0.4",
+    "socket.io-client": "^2.0.4"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
@@ -52,8 +54,6 @@
     "mochawesome": "^3.0.2",
     "sinon": "^4.4.8",
     "sinon-chai": "^3.0.0",
-    "socket.io": "^2.0.4",
-    "socket.io-client": "^2.0.4",
     "webpack": "^3.11.0"
   }
 }
