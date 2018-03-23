@@ -17,14 +17,14 @@ const outputPath = path.join(__dirname, '..');
 
 const config = {
   entry: {
-    index: [path.join(__dirname, '../src', 'index.js')],
-    vendor: VENDOR_LIBS,
+    index: path.join(__dirname, '../src', 'index.js'),
   },
   output: {
     path: outputPath,
     filename: '[name].js',
     libraryTarget: 'umd',
     library: pkg.name,
+    umdNamedDefine: true,
   },
   module: {
     rules: [
@@ -46,7 +46,7 @@ const config = {
   resolve: {
     extensions: ['.js', '.jsx'],
   },
-  externals: /^(lodash(\/.*)|redux|react-redux|react|prop-types|socket.io-client)$/,
+  // externals: /^(lodash(\/.*)|redux|react-redux|react|prop-types|socket.io-client)$/,
   plugins: [
     new webpack.optimize.CommonsChunkPlugin({
       name: ['vendor', 'manifest'],
