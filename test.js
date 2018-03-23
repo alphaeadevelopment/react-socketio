@@ -1,3 +1,3 @@
-import { SocketProvider } from './index';
+const SocketProvider = require('./index');
 
 console.log(SocketProvider);

@@ -17,7 +17,7 @@ const outputPath = path.join(__dirname, '..');
 
 const config = {
   entry: {
-    index: path.join(__dirname, '../src', 'index.js'),
+    main: path.join(__dirname, '../src', 'index.js'),
   },
   output: {
     path: outputPath,
