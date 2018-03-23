@@ -1,1 +1,1 @@
-module.exports = require('./main').SocketProvider;
+module.exports = require('./main');
