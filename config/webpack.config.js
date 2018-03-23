@@ -44,7 +44,8 @@ const config = {
   resolve: {
     extensions: ['.js', '.jsx'],
   },
-  externals: /^(lodash(\/.*)|redux|react-redux|react|prop-types|socket.io-client)$/,
+  // externals: /^(lodash(\/.*)|redux|react-redux|react|prop-types|socket.io-client)$/,
+  externals: { 'react': 'commonjs react' },
   plugins: [
     new webpack.optimize.CommonsChunkPlugin({
       name: ['vendor', 'manifest'],
