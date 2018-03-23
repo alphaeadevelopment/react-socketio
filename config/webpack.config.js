@@ -2,6 +2,7 @@
 const fs = require('fs');
 const path = require('path')
 const webpack = require('webpack')
+const pkg = require('../package.json');
 
 const VENDOR_LIBS = [
   'lodash',
@@ -10,7 +11,6 @@ const VENDOR_LIBS = [
   'react-redux',
   'socket.io-client',
 ];
-
 
 const babelExclude = /node_modules/
 const outputPath = path.join(__dirname, '..');
@@ -23,7 +23,8 @@ const config = {
   output: {
     path: outputPath,
     filename: '[name].js',
-    libraryTarget: 'commonjs',
+    libraryTarget: 'umd',
+    library: pkg.name,
   },
   module: {
     rules: [
