@@ -9,16 +9,46 @@ export class RawSocketProvider extends React.Component {
   state = {
     socket: null,
   }
-  getChildContext() {
+  getChildContext = () => {
     return { socket: this.state.socket };
   }
-  componentWillMount() {
-    const { dispatch, serverUrl, listeners } = this.props;
-    const socket = io.connect(serverUrl);
-    this.setState({
-      socket,
-    });
-    bindSocketListeners(listeners, socket, dispatch);
+  componentWillMount = () => {
+    const doConnect = this.props.connect;
+    if (doConnect) {
+      this.connect();
+    }
+  }
+  componentWillReceiveProps = (nextProps) => {
+    if (this.props.doConnect && !nextProps.doConnect) {
+      this.disconnect();
+    }
+    else if (!this.props.doConnect && nextProps.doConnect) {
+      this.connect();
+    }
+  }
+  componentWillUnmount = () => {
+    this.disconnect();
+  }
+  disconnect = () => {
+    const { socket } = this.state;
+    if (socket) {
+      socket.close();
+      this.setState({ socket: null });
+    }
+  }
+  connect = () => {
+    const { socket } = this.state;
+    if (socket) {
+      console.warn('Already connected');
+    }
+    else {
+      const { dispatch, serverUrl, listeners } = this.props;
+      const s = io.connect(serverUrl);
+      this.setState({
+        socket,
+      });
+      bindSocketListeners(listeners, s, dispatch);
+    }
   }
   render() {
     const { children } = this.props;
