@@ -4,13 +4,13 @@ const path = require('path')
 const webpack = require('webpack')
 const pkg = require('../package.json');
 
-const VENDOR_LIBS = [
-  'lodash',
-  'react',
-  'prop-types',
-  'react-redux',
-  'socket.io-client',
-];
+// const VENDOR_LIBS = [
+//   'lodash',
+//   'react',
+//   'prop-types',
+//   'react-redux',
+//   'socket.io-client',
+// ];
 
 const babelExclude = /node_modules/
 const outputPath = path.join(__dirname, '..');
@@ -22,7 +22,8 @@ const config = {
   output: {
     path: outputPath,
     filename: '[name].js',
-    libraryTarget: 'commonjs2',
+    // library: ["SocketProvider"],
+    libraryTarget: 'commonjs',
   },
   module: {
     rules: [
@@ -44,12 +45,13 @@ const config = {
   resolve: {
     extensions: ['.js', '.jsx'],
   },
-  // externals: /^(lodash(\/.*)|redux|react-redux|react|prop-types|socket.io-client)$/,
-  externals: { 'react': 'commonjs react' },
+  externals: {
+    react: 'react'
+  },
   plugins: [
-    new webpack.optimize.CommonsChunkPlugin({
-      name: ['vendor', 'manifest'],
-    }),
+    // new webpack.optimize.CommonsChunkPlugin({
+    //   name: ['vendor', 'manifest'],
+    // }),
   ]
 };
 

@@ -1,1 +1,3 @@
-module.exports = require('./main');
+const main = require('./main');
+
+module.exports = main.SocketProvider;
