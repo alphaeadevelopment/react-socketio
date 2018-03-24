@@ -22,7 +22,6 @@ const config = {
   output: {
     path: outputPath,
     filename: '[name].js',
-    // library: ["SocketProvider"],
     libraryTarget: 'commonjs',
   },
   module: {

@@ -1,3 +1,3 @@
 const main = require('./main');
 
-module.exports = main.SocketProvider;
+module.exports = main.default;
