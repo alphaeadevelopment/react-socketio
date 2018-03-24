@@ -64,6 +64,14 @@ RawSocketProvider.childContextTypes = {
   socket: PropTypes.object,
 };
 
+RawSocketProvider.propTypes = {
+  doConnect: PropTypes.bool,
+};
+
+RawSocketProvider.defaultProps = {
+  doConnect: true,
+};
+
 const mapStateToProps = () => ({
 });
 
