@@ -1,5 +1,5 @@
 {
-  "name": "react-socket-io",
+  "name": "react-redux-socket-io",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
