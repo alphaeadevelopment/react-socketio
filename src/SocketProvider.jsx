@@ -1,7 +1,6 @@
 /* eslint-disable no-console */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 import io from 'socket.io-client';
 import bindSocketListeners from './bind-socket-listeners';
 
@@ -9,9 +8,7 @@ export class RawSocketProvider extends React.Component {
   state = {
     socket: null,
   }
-  getChildContext = () => {
-    return { socket: this.state.socket };
-  }
+  getChildContext = () => ({ socket: this.state.socket })
   componentWillMount = () => {
     const doConnect = this.props.connect;
     if (doConnect) {
@@ -72,7 +69,4 @@ RawSocketProvider.defaultProps = {
   doConnect: true,
 };
 
-const mapStateToProps = () => ({
-});
-
-export default connect(mapStateToProps)(RawSocketProvider);
+export default RawSocketProvider;
